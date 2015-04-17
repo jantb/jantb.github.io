@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Sipp</title>
+    <link>http://sipp.io/post/</link>
+    <description>Recent content in Posts on Sipp</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Apr 2015 20:48:00 +0200</lastBuildDate>
+    <atom:link href="http://sipp.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>sipp</title>
+      <link>http://sipp.io/blog/2015/04/17/sipp/</link>
+      <pubDate>Fri, 17 Apr 2015 20:48:00 +0200</pubDate>
+      
+      <guid>http://sipp.io/blog/2015/04/17/sipp/</guid>
+      <description>&lt;p&gt;first post&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
