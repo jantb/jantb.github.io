@@ -22,13 +22,13 @@ paginate = 10
 #
 [params]
     # Used when a given page doesn't set its own.
-    defaultDescription = "Your default page description"
-    defaultKeywords = "your,default,page,keywords"
+    defaultDescription = "Tech musings, current projects and more about me."
+    defaultKeywords = "home,website,blog"
 
     # Changes sidebar background and link/accent colours.
     # See below for more colour options.
     # This also works: "theme-base-08 layout-reverse", or just "layout-reverse".
-    # theme = "theme-base-08"
+    theme = "theme-base-0c"
 
     # Select a syntax highight.
     # Check the static/css/highlight directory for options.
@@ -44,7 +44,7 @@ paginate = 10
     #gravatarHash = "MD5 hash of your Gravatar email address"
 
     # Sidebar social links, these must be full URLs.
-    github = ""
+    github = "https://github.com/jantb"
     linkedin = ""
     googleplus = ""
     facebook = ""
