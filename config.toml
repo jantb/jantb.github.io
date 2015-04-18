@@ -1,5 +1,5 @@
 baseurl = "http://sipp.io"
-title = "Sipp"
+title = "sipp"
 languageCode = "en-us"
 MetaDataFormat = "toml"
 theme = "hyde-x"
