@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>Sipp &middot; Jan Tore Bøe</title>
+  <title>sipp.io registrered &middot; Jan Tore Bøe</title>
 
   
   <link rel="stylesheet" href="http://sipp.io//css/poole.css">
@@ -26,7 +26,7 @@
   
   
   
-  <link href="http://sipp.io/index.xml" rel="alternate" type="application/rss+xml" title="Sipp &middot; Jan Tore Bøe" />
+  
 
   <meta name="description" content="Tech musings, current projects and more about me.">
   <meta name="keywords" content="home,website,blog">
@@ -63,23 +63,22 @@
 
 
 <div class="content container">
-  <div class="posts">
-    
-    
-    <div class="post">
-      <h1 class="post-title">
-        <a href="http://sipp.io/blog/2015/04/17/sipp.io-registrered/">sipp.io registrered</a>
-      </h1>
-      <span class="post-date">Apr 17, 2015 &middot; 1 minute read
-      </span>
-      <p></p>
-      <a href="http://sipp.io/blog/2015/04/17/sipp.io-registrered/">Read On &rarr;</a>
-    </div>
-    
-    
-    
+  <div class="post">
+    <h1>sipp.io registrered</h1>
+    <span class="post-date">Apr 17, 2015 &middot; 1 minute read
+    </span>
+    <p>Registrered sipp.io today. The name was found by:</p>
+
+<pre><code>for domain in `cat * | perl -ne's/io$/.io/ &amp;&amp; print lc if length == 7'` ; do whois $domain | grep &quot;is available for purchase&quot; ; done
+</code></pre>
+
+<p>Where cat * is the path to a dictionary.</p>
+
   </div>
+  
 </div>
+
+
 
 
 <script src="http://sipp.io//js/highlight.pack.js"></script>
