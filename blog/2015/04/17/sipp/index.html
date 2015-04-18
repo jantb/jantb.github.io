@@ -32,7 +32,7 @@
   <meta name="keywords" content="your,default,page,keywords">
   <link rel="author" href="http://plus.google.com/Your%20Google&#43;%20profile%20ID">
 </head>
-<body class="theme-base-08">
+<body>
 <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
@@ -67,7 +67,12 @@
     <h1>sipp</h1>
     <span class="post-date">Apr 17, 2015 &middot; 1 minute read
     </span>
-    <p>first post</p>
+    <p>Registrered sipp.io today. The name was found by:</p>
+
+<pre><code>for domain in `cat * | perl -ne's/io$/.io/ &amp;&amp; print lc if length == 7'` ; do whois $domain | grep &quot;is available for purchase&quot; ; done
+</code></pre>
+
+<p>Where cat * is the path to a dictionary.</p>
 
   </div>
   
