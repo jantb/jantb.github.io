@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sipp</title>
+    <title>sipp</title>
     <link>http://sipp.io/</link>
-    <description>Recent content on Sipp</description>
+    <description>Recent content on sipp</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Apr 2015 20:48:00 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 18 Apr 2015 09:12:48 +0200</lastBuildDate>
     <atom:link href="http://sipp.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>american_cinnamonrolls</title>
+      <link>http://sipp.io/blog/2015/04/18/american_cinnamonrolls/</link>
+      <pubDate>Sat, 18 Apr 2015 09:12:48 +0200</pubDate>
+      
+      <guid>http://sipp.io/blog/2015/04/18/american_cinnamonrolls/</guid>
+      <description>&lt;p&gt;Gives 30&lt;/p&gt;
+
+&lt;p&gt;50 g yeast
+&lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt; cup warm water 115g
+1 &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt; cup milk, heated to boiling then cooled to luke warm 350g&lt;/p&gt;
+
+&lt;p&gt;&lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt; cup sugar 105g
+2 ts salt 3g
+&lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt; cup butter 107g
+6 to 7 cups flour 800g&lt;/p&gt;
+
+&lt;p&gt;Raise for 1 hour&lt;/p&gt;
+
+&lt;p&gt;8ss butter
+1 cup sugar
+8 ts cinnamon&lt;/p&gt;
+
+&lt;p&gt;Backed in the oven in a pan with baking paper. 220deg 20 mins&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>sipp.io registrered</title>
