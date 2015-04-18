@@ -27,5 +27,5 @@ Filling:
 * 8 ts cinnamon
 
 
-Backed in the oven in a pan with baking paper. 220deg 20 mins
+Backed in the oven in a pan with baking paper. 220 °C 20 mins
 
