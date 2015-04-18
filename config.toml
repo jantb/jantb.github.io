@@ -36,12 +36,12 @@ paginate = 10
 
     # Displays under the author name in the sidebar, keep it short.
     # You can use markdown here.
-    tagline = "Your favourite quote or soundbite."
+    # tagline = "Your favourite quote or soundbite."
 
     # Metadata used to drive integrations.
-    googleAuthorship = "Your Google+ profile ID"
-    googleAnalytics = "Your Google Analytics tracking code"
-    gravatarHash = "MD5 hash of your Gravatar email address"
+    #googleAuthorship = "Your Google+ profile ID"
+    #googleAnalytics = "Your Google Analytics tracking code"
+    #gravatarHash = "MD5 hash of your Gravatar email address"
 
     # Sidebar social links, these must be full URLs.
     github = ""
