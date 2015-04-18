@@ -22,10 +22,10 @@ Raise for 1 hour.
 
 Filling:
 
-* 8 tbsp butter 38g
+* 10 tbsp butter 50g
 * 1 cup sugar 210g
-* 8 tsp cinnamon
+* 8 tsp cinnamon 20g
 
-
-Backed in the oven in a pan with baking paper. 220 °C 20 mins
+Make 2 flat mats. Add filling, roll and cut. Raise another hour.
+Baked in the oven in a pan with baking paper. 220 °C 20 mins
 
