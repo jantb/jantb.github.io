@@ -9,7 +9,10 @@ title = "Crosscompile to rasberry pi:"
 
 
 Crosscompile to rasberry pi:
-```brew reinstall go --cross-compile-all```
+
+```
+brew reinstall go --cross-compile-all
+```
 
 ```
 GOOS=linux GOARCH=arm go build
