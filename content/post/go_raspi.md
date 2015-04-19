@@ -8,7 +8,7 @@ title = "Crosscompile to rasberry pi:"
 +++
 
 
-Crosscompile to rasberry pi:
+Crosscompile to rasberry pi, from mac if you have brew installed:
 
 ```
 brew reinstall go --cross-compile-all
