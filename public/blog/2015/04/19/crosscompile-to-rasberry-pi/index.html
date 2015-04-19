@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>Posts &middot; Jan Tore Bøe</title>
+  <title>Crosscompile to rasberry pi: &middot; Jan Tore Bøe</title>
 
   
   <link rel="stylesheet" href="http://sipp.io//css/poole.css">
@@ -26,7 +26,7 @@
   
   
   
-  <link href="http://sipp.io/post/index.xml" rel="alternate" type="application/rss+xml" title="sipp &middot; Jan Tore Bøe" />
+  
 
   <meta name="description" content="Tech musings, current projects and more about me.">
   <meta name="keywords" content="home,website,blog">
@@ -63,30 +63,27 @@
 
 
 <div class="content container">
-  <ul class="posts">
-  
-    <li><a href="http://sipp.io/blog/2015/04/19/crosscompile-to-rasberry-pi/">Crosscompile to rasberry pi:</a>
+  <div class="post">
+    <h1>Crosscompile to rasberry pi:</h1>
+    <span class="post-date">Apr 19, 2015 &middot; 1 minute read
     
-    &middot;
-    
-    
-    </span>
-    &middot; <time>Apr 19, 2015</time></li>
-  
-    <li><a href="http://sipp.io/blog/2015/04/18/mothers-american-cinnemarolls/">Mother&#39;s American cinnemarolls</a>
-    
-    &middot;
+    <br/>
     
     
     </span>
-    &middot; <time>Apr 18, 2015</time></li>
+    <p>Crosscompile to rasberry pi:
+<code>brew reinstall go --cross-compile-all</code></p>
+
+<pre><code>GOOS=linux GOARCH=arm go build
+</code></pre>
+
+  </div>
   
-    <li><a href="http://sipp.io/blog/2015/04/17/sipp.io-registrered/">sipp.io registrered</a>
-    </span>
-    &middot; <time>Apr 17, 2015</time></li>
-  
-  </ul>
 </div>
+
+
+
+
 <script src="http://sipp.io//js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
