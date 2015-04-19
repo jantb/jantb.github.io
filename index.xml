@@ -6,8 +6,22 @@
     <description>Recent content on sipp</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Apr 2015 09:12:48 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 19 Apr 2015 20:15:26 +0200</lastBuildDate>
     <atom:link href="http://sipp.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Crosscompile to rasberry pi:</title>
+      <link>http://sipp.io/blog/2015/04/19/crosscompile-to-rasberry-pi/</link>
+      <pubDate>Sun, 19 Apr 2015 20:15:26 +0200</pubDate>
+      
+      <guid>http://sipp.io/blog/2015/04/19/crosscompile-to-rasberry-pi/</guid>
+      <description>&lt;p&gt;Crosscompile to rasberry pi:
+&lt;code&gt;brew reinstall go --cross-compile-all&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GOOS=linux GOARCH=arm go build
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Mother&#39;s American cinnemarolls</title>
