@@ -15,8 +15,9 @@
       <pubDate>Sun, 19 Apr 2015 20:15:26 +0200</pubDate>
       
       <guid>https://sipp.io/blog/2015/04/19/crosscompile-to-rasberry-pi/</guid>
-      <description>&lt;p&gt;Crosscompile to rasberry pi.
-From mac:&lt;/p&gt;
+      <description>&lt;p&gt;Crosscompile to rasberry pi.&lt;/p&gt;
+
+&lt;p&gt;From mac:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;
 brew reinstall go --cross-compile-all
