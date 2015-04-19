@@ -1,4 +1,4 @@
-baseurl = "http://sipp.io"
+baseurl = "https://sipp.io"
 title = "sipp"
 languageCode = "en-us"
 MetaDataFormat = "toml"
