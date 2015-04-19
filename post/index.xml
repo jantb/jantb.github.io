@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on sipp</title>
-    <link>http://sipp.io/post/</link>
+    <link>https://sipp.io/post/</link>
     <description>Recent content in Posts on sipp</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 19 Apr 2015 20:15:26 +0200</lastBuildDate>
-    <atom:link href="http://sipp.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sipp.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Crosscompile to rasberry pi</title>
-      <link>http://sipp.io/blog/2015/04/19/crosscompile-to-rasberry-pi/</link>
+      <link>https://sipp.io/blog/2015/04/19/crosscompile-to-rasberry-pi/</link>
       <pubDate>Sun, 19 Apr 2015 20:15:26 +0200</pubDate>
       
-      <guid>http://sipp.io/blog/2015/04/19/crosscompile-to-rasberry-pi/</guid>
+      <guid>https://sipp.io/blog/2015/04/19/crosscompile-to-rasberry-pi/</guid>
       <description>&lt;p&gt;Crosscompile to rasberry pi.
 From mac:&lt;/p&gt;
 
@@ -31,10 +31,10 @@ brew reinstall go --cross-compile-all
     
     <item>
       <title>Mother&#39;s American cinnemarolls</title>
-      <link>http://sipp.io/blog/2015/04/18/mothers-american-cinnemarolls/</link>
+      <link>https://sipp.io/blog/2015/04/18/mothers-american-cinnemarolls/</link>
       <pubDate>Sat, 18 Apr 2015 09:12:48 +0200</pubDate>
       
-      <guid>http://sipp.io/blog/2015/04/18/mothers-american-cinnemarolls/</guid>
+      <guid>https://sipp.io/blog/2015/04/18/mothers-american-cinnemarolls/</guid>
       <description>&lt;p&gt;Gives 30 rolls.
 Dough:&lt;/p&gt;
 
@@ -65,10 +65,10 @@ Baked in the oven in a pan with baking paper. 220 °C 20 mins&lt;/p&gt;
     
     <item>
       <title>sipp.io registrered</title>
-      <link>http://sipp.io/blog/2015/04/17/sipp.io-registrered/</link>
+      <link>https://sipp.io/blog/2015/04/17/sipp.io-registrered/</link>
       <pubDate>Fri, 17 Apr 2015 20:48:00 +0200</pubDate>
       
-      <guid>http://sipp.io/blog/2015/04/17/sipp.io-registrered/</guid>
+      <guid>https://sipp.io/blog/2015/04/17/sipp.io-registrered/</guid>
       <description>&lt;p&gt;Registrered sipp.io today. The name was found by:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;for domain in `cat * | perl -ne&#39;s/io$/.io/ &amp;amp;&amp;amp; print lc if length == 7&#39;` ; do whois $domain | grep &amp;quot;is available for purchase&amp;quot; ; done
