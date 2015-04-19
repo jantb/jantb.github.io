@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>Crosscompile to rasberry pi: &middot; Jan Tore Bøe</title>
+  <title>Crosscompile to rasberry pi &middot; Jan Tore Bøe</title>
 
   
   <link rel="stylesheet" href="http://sipp.io//css/poole.css">
@@ -64,20 +64,24 @@
 
 <div class="content container">
   <div class="post">
-    <h1>Crosscompile to rasberry pi:</h1>
+    <h1>Crosscompile to rasberry pi</h1>
     <span class="post-date">Apr 19, 2015 &middot; 1 minute read
     
     <br/>
     
     
     </span>
-    <p>Crosscompile to rasberry pi, from mac if you have brew installed:</p>
+    <p>Crosscompile to rasberry pi.
+From mac:</p>
 
-<pre><code>brew reinstall go --cross-compile-all
+<pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+brew reinstall go --cross-compile-all
 </code></pre>
 
 <pre><code>GOOS=linux GOARCH=arm go build
 </code></pre>
+
+<p>Now copy the binary to rasberry pi and rund it.</p>
 
   </div>
   
