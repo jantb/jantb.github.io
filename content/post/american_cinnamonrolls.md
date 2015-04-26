@@ -1,9 +1,9 @@
 +++
 categories = []
 date = "2015-04-18T09:12:48+02:00"
-description = "Mother's old American cinnemarolls receipe"
+description = "Mother's old American Cinnemon Rolls receipe"
 keywords = ["receipe"]
-title = "Mother's American cinnemarolls"
+title = "Mother's American Cinnemon Rolls"
 
 +++
 
