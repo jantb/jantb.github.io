@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Home Automation &middot; Jan Tore Bøe</title>
+
+  
+  <link rel="stylesheet" href="https://sipp.io//css/poole.css">
+  <link rel="stylesheet" href="https://sipp.io//css/hyde.css">
+  <link rel="stylesheet" href="https://sipp.io//css/poole-overrides.css">
+  <link rel="stylesheet" href="https://sipp.io//css/hyde-overrides.css">
+  <link rel="stylesheet" href="https://sipp.io//css/hyde-x.css">
+  <link rel="stylesheet" href="https://sipp.io//css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="IOT is gaining traction these days, and I have had some spare time lately to do some automation at home. I wanted to control heating, and ventilation without doing anything with the mains.">
+  <meta name="keywords" content="home,website,blog">
+  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Jan Tore Bøe</h1>
+      
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="https://sipp.io//">Blog</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="https://github.com/jantb"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      
+      
+      </li>
+    </ul>
+
+    <p>Copyright &copy; 2015 <a href="https://sipp.io//license">License</a><br/>
+       Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Home Automation</h1>
+    <span class="post-date">Apr 29, 2015 &middot; 6 minute read
+    
+    <br/>
+    
+    
+    </span>
+    <p>IOT is gaining traction these days, and I have had some spare time lately to do some automation at home. I wanted to control heating, and ventilation without doing anything with the mains.</p>
+
+<p>There are many remote switches today that works with RF 433.92. I got some from a Swedish brand called NEXA. I got 5 of those, 2 rated at 2300W and some cheaper rated 1500W. These have a self learning system that allows for mixing and matching remotes.</p>
+
+<p>To control these I have an arduino with a cheap rf receiver and rf transmitter. The receiver is used for sniffing the remote id, with this code from <a href="http://playground.arduino.cc/Code/HomeEasy">arduino.cc</a>.</p>
+
+<pre><code class="language-c">/*
+ * AM-HRR3 receiver test
+ *
+ * Homeeasy protocol receiver for the new protocol.
+ *
+ * This protocol isn't documented so well, so here goes (this is largely from memory).
+ *
+ * The data is encoded on the wire (aerial) as a Manchester code.
+ *
+ * A latch of 275us high, 2675us low is sent before the data.
+ * There is a gap of 10ms between each message.
+ *
+ * 0 = holding the line high for 275us then low for 275us.
+ * 1 = holding the line high for 275us then low for 1225us.
+ * 
+ * The timings seem to vary quite noticably between devices.  HE300 devices have a
+ * low for about 1300us for a 1 whereas HE303 devices seem to have a low of about
+ * 1100us.  If this script does not detect your signals try relaxing the timing
+ * conditions.
+ * 
+ * Each actual bit of data is encoded as two bits on the wire as:
+ * Data 0 = Wire 01
+ * Data 1 = Wire 10
+ *
+ * The actual message is 32 bits of data (64 wire bits):
+ * bits 0-25: the group code - a 26bit number assigned to controllers.
+ * bit 26: group flag
+ * bit 27: on/off flag
+ * bits 28-31: the device code - a 4bit number.
+ *
+ * The group flag just seems to be a separate set of addresses you can program devices
+ * to and doesn't trigger the dim cycle when sending two ONs.
+ *
+ * There's extra support for setting devices to a specific dim-level that you get
+ * with the HE100 ultimate remote control. I think this involves sending a Wire 11 at
+ * the on/off flag position and then the message is longer with another 4 bits for dim
+ * level.
+ * Need to look into this.
+ *
+ * Barnaby Gray 12/2008
+ * Peter Mead   09/2009
+ */
+
+int rxPin = 12;
+
+
+void setup()
+{	pinMode(rxPin, INPUT);
+	Serial.begin(9600);
+}
+
+
+void loop()
+{
+	int i = 0;
+	unsigned long t = 0;
+
+	byte prevBit = 0;
+	byte bit = 0;
+
+	unsigned long sender = 0;
+	bool group = false;
+	bool on = false;
+	unsigned int recipient = 0;
+
+	// latch 1
+	while((t &lt; 9480 || t &gt; 10350))
+	{	t = pulseIn(rxPin, LOW, 1000000);
+	}
+
+	// latch 2
+	while(t &lt; 2550 || t &gt; 2700)
+	{	t = pulseIn(rxPin, LOW, 1000000);
+	}
+
+	// data
+	while(i &lt; 64)
+	{
+		t = pulseIn(rxPin, LOW, 1000000);
+
+		if(t &gt; 200 &amp;&amp; t &lt; 365)
+		{	bit = 0;
+		}
+		else if(t &gt; 1000 &amp;&amp; t &lt; 1360)
+		{	bit = 1;
+		}
+		else
+		{	i = 0;
+			break;
+		}
+
+		if(i % 2 == 1)
+		{
+			if((prevBit ^ bit) == 0)
+			{	// must be either 01 or 10, cannot be 00 or 11
+				i = 0;
+				break;
+			}
+
+			if(i &lt; 53)
+			{	// first 26 data bits
+				sender &lt;&lt;= 1;
+				sender |= prevBit;
+			}	
+			else if(i == 53)
+			{	// 26th data bit
+				group = prevBit;
+			}
+			else if(i == 55)
+			{	// 27th data bit
+				on = prevBit;
+			}
+			else
+			{	// last 4 data bits
+				recipient &lt;&lt;= 1;
+				recipient |= prevBit;
+			}
+		}
+
+		prevBit = bit;
+		++i;
+	}
+
+	// interpret message
+	if(i &gt; 0)
+	{	printResult(sender, group, on, recipient);
+	}
+}
+
+
+void printResult(unsigned long sender, bool group, bool on, unsigned int recipient)
+{
+	Serial.print(&quot;sender &quot;);
+	Serial.println(sender);
+
+	if(group)
+	{	Serial.println(&quot;group command&quot;);
+	}
+	else
+	{	Serial.println(&quot;no group&quot;);
+	}
+
+	if(on)
+	{	Serial.println(&quot;on&quot;);
+	}
+	else
+	{	Serial.println(&quot;off&quot;);
+	}
+
+	Serial.print(&quot;recipient &quot;);
+	Serial.println(recipient);
+
+	Serial.println();
+}
+</code></pre>
+
+<p>Then with an arduino the rf transmitter and an ethernet shield:</p>
+
+<pre><code class="language-c">#include &lt;SPI.h&gt;
+#include &lt;Ethernet.h&gt;
+#include &lt;NexaTransmitter.h&gt;
+#include &lt;avr/wdt.h&gt;
+
+NexaTransmitter remote(7,  15551665); // Create the nexa remote on pin7 with remote id, remote id can be found using the script mentioned earlier
+
+// assign a MAC address for the ethernet controller.
+// fill in your address here:
+byte mac[] = {
+  0x00, 0xAA, 0xBB, 0xCC, 0xDE, 0x02
+};
+// initialize the library instance:
+EthernetClient client;
+
+char server[] = &quot;pi.sipp.io&quot;;
+
+unsigned long lastConnectionTime = 0;             // last time you connected to the server, in milliseconds
+const unsigned long postingInterval = 10L * 1000L; // delay between updates, in milliseconds
+// the &quot;L&quot; is needed to use long type numbers
+String readString;
+int x = 0;
+char lf = 10;
+void setup() {
+  // start serial port:
+  Serial.begin(9600);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for Leonardo only
+  }
+
+  // give the ethernet module time to boot up:
+  delay(1000);
+  // start the Ethernet connection using a fixed IP address and DNS server:
+  if (Ethernet.begin(mac) == 0) {
+    Serial.println(&quot;Failed to configure Ethernet using DHCP&quot;);
+    // no point in carrying on, so do nothing forevermore:
+    for (;;)
+      ;
+  }
+  // print the Ethernet board/shield's IP address:
+  Serial.print(&quot;My IP address: &quot;);
+  Serial.println(Ethernet.localIP());
+  wdt_enable(WDTO_8S);
+}
+
+//Finding two crlf which separates the body from the header in the html response
+String getBody() {
+  readString = &quot;&quot;;
+  char c;
+  char d;
+  char e;
+  char f;
+  while (client.available()) {
+    f = e;
+    e = d;
+    d = c;
+    c = client.read();
+    if (c == 10 &amp;&amp; d == 13 &amp;&amp; e == 10 &amp;&amp; f == 13  ) {
+      while (client.available()) {
+        readString += (char)client.read();
+      }
+    }
+  }
+  return readString;
+}
+
+void loop() {
+  wdt_reset();
+  String body = getBody();
+  if (body == &quot;on temp&quot;) {
+    remote.setSwitch(true, 0);
+  }
+  
+  if (body == &quot;off temp&quot;) {
+    remote.setSwitch(false, 0);
+  } 
+  
+  if (body == &quot;on air&quot;) {
+    remote.setSwitch(true, 1);
+  }
+  
+  if (body == &quot;off air&quot;) {
+    remote.setSwitch(false, 1);
+  } 
+
+  if (millis() - lastConnectionTime &gt; postingInterval) {
+    httpRequest(&quot;GET /heater/ HTTP/1.1&quot;);
+  }
+
+}
+
+// this method makes a HTTP connection to the server:
+void httpRequest(String url) {
+  // close any connection before send a new request.
+  // This will free the socket on the WiFi shield
+  client.stop();
+
+  // if there's a successful connection:
+  if (client.connect(server, 80)) {
+  //  Serial.println(&quot;connecting...&quot;);
+    // send the HTTP PUT request:
+    client.println(url);
+    client.println(&quot;Host: sipp.io&quot;);
+    client.println(&quot;User-Agent: arduino-ethernet&quot;);
+    client.println(&quot;Connection: close&quot;);
+    client.println();
+
+    // note the time that the connection was made:
+    lastConnectionTime = millis();
+  }
+  else {
+    // if you couldn't make a connection:
+   // Serial.println(&quot;connection failed&quot;);
+  }
+}
+</code></pre>
+
+<p>And on the server the arduino is pulling from I have a go server, which reads my Netatmo station and changes the values according to the given parameters to ensure a healthy indoor climate.</p>
+
+  </div>
+  
+</div>
+
+
+
+
+<script src="https://sipp.io//js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
