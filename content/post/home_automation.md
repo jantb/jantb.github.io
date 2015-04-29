@@ -1,11 +1,7 @@
 +++
 categories = []
 date = "2015-04-29T19:57:12+02:00"
-description = "OT is gaining traction these days, and I have had some spare time lately to do some automation at home. I wanted to control heating, and ventilation without doing anything with the mains.
-
-There are many remote switches today that works with RF 433.92. I got some from a Swedish brand called NEXA. I got 5 of those, 2 rated at 2300W and some cheaper rated 1500W. These have a self learning system that allows for mixing and matching remotes.
-
-To"
+description = "IOT is gaining traction these days, and I have had some spare time lately to do some automation at home. I wanted to control heating, and ventilation without doing anything with the mains."
 keywords = []
 title = "Home Automation"
 

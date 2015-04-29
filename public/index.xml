@@ -10,11 +10,11 @@
     <atom:link href="https://sipp.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>home_automation</title>
-      <link>https://sipp.io/blog/2015/04/29/home_automation/</link>
+      <title>Home Automation</title>
+      <link>https://sipp.io/blog/2015/04/29/home-automation/</link>
       <pubDate>Wed, 29 Apr 2015 19:57:12 +0200</pubDate>
       
-      <guid>https://sipp.io/blog/2015/04/29/home_automation/</guid>
+      <guid>https://sipp.io/blog/2015/04/29/home-automation/</guid>
       <description>&lt;p&gt;IOT is gaining traction these days, and I have had some spare time lately to do some automation at home. I wanted to control heating, and ventilation without doing anything with the mains.&lt;/p&gt;
 
 &lt;p&gt;There are many remote switches today that works with RF 433.92. I got some from a Swedish brand called NEXA. I got 5 of those, 2 rated at 2300W and some cheaper rated 1500W. These have a self learning system that allows for mixing and matching remotes.&lt;/p&gt;
